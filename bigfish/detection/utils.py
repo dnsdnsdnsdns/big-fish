@@ -296,10 +296,22 @@ def _build_reference_spot_3d(image, spots, radius, alpha):
     yx_shape = radius_yx * 2 + 1
 
     # randomly choose some spots to aggregate
-    indices = [i for i in range(spots.shape[0])]
-    np.random.shuffle(indices)
-    indices = indices[:min(2000, spots.shape[0])]
-    candidate_spots = spots[indices, :]
+    # indices = [i for i in range(spots.shape[0])]
+    # np.random.shuffle(indices)
+    # indices = indices[:min(2000, spots.shape[0])]
+    # candidate_spots = spots[indices, :]
+
+    # use all spots
+    candidate_spots = spots 
+
+    # use half of the spots
+    # np.random.seed(0)
+    # indices = [i for i in range(spots.shape[0])]
+    # np.random.shuffle(indices)
+    # n_candidate_spots = int(spots.shape[0]/2)
+    # indices = indices[:n_candidate_spots]
+    # candidate_spots = spots[indices, :]
+    
 
     # collect area around each spot
     l_reference_spot = []
